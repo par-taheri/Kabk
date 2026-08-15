@@ -1,0 +1,45 @@
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/.rspec_status
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Custom AI / Agent artifacts & exports
+/.agents/
+/.gemini/
+kabk.txt
+*.dump
+*.log
+
+# YARD artifacts
+.yardoc/
+_yardoc/
+doc/
+
+# IDE, LSP & Editor
+.vscode/
+.idea/
+.ruby-lsp/
+*.swp
+*~
+
+# Bundler
+/.bundle/
+/vendor/bundle/
+/lib/bundler/man/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

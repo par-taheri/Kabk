@@ -1,0 +1,43 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/**/*'
+    - 'bin/**/*'
+    - 'exe/**/*'
+    - '*.gemspec'
+    - 'Gemfile'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'kabk.gemspec'
+    - 'lib/kabk/relation_hydrator.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 150
+
+Layout/EndOfLine:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+Metrics/PerceivedComplexity:
+  Max: 35
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
