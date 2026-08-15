@@ -253,3 +253,62 @@ end
 ### Flow and Error Handling
 - **Mutations:** Any changes to params within `before_create` or `before_update` are validated and passed down to the DB adapter.
 - **Halting Flow:** If a custom hook raises a `Kabk::ApiError` (e.g., `Kabk::ValidationError`), the RestEngine immediately halts, skips the database operation, and returns a standard error payload: `{ success: false, error: { message: ... } }`.
+
+---
+
+## 7. System Configuration & Schema Manifest (`Kabk::SchemaRenderer`)
+
+Kabk generates a dynamic JSON schema manifest compliant with **Simurgh Protocol v1.6.0**. This manifest contains both system-wide configuration (branding, fonts, authentication) and all registered resource schemas.
+
+```ruby
+renderer = Kabk::SchemaRenderer.new(
+  system_config: {
+    # 1. Branding & Localization
+    title: { fa: "پنل مدیریت داده‌ها", en: "Data Management Panel" },
+    subtitle: { fa: "سامانه یکپارچه مدیریت محتوا و اطلاعات", en: "Unified Content & Data Dashboard" },
+    logo_url: "/assets/logo.svg",
+    default_locale: "fa",
+    supported_locales: ["fa", "en"],
+    direction: "rtl",
+
+    # 2. Endpoints
+    endpoints: {
+      upload: "/api/admin/uploads"
+    },
+
+    # 3. Authentication Configuration (for Simurgh Login View)
+    auth: {
+      strategy: "session",                   # "session", "jwt", or "sso"
+      show_demo_credentials: false,          # Set to false in production to hide demo box
+      subtitle: {
+        fa: "ورود به سامانه مدیریت داده‌ها",
+        en: "Sign in to Data Management Panel"
+      },
+      login_url: "/api/admin/auth/login",
+      me_url: "/api/admin/auth/me",
+      logout_url: "/api/admin/auth/logout",
+      sso_redirect_url: nil,
+      login_fields: [
+        {
+          name: "email",
+          label: { en: "Email / Username", fa: "ایمیل یا نام کاربری" },
+          placeholder: { en: "e.g. admin@example.com", fa: "مثال: admin@example.com" },
+          type: "text",
+          required: true
+        },
+        {
+          name: "password",
+          label: { en: "Password", fa: "کلمه عبور" },
+          placeholder: { en: "••••••••", fa: "••••••••" },
+          type: "password",
+          required: true
+        }
+      ]
+    }
+  }
+)
+
+schema = renderer.render
+# => { "$schema_version": "1.6.0", "system": { ... }, "validation_schema_url": "...", "resources": [ ... ] }
+```
+

@@ -28,6 +28,7 @@ module Kabk
     def default_system_config
       {
         title: { fa: "پنل مدیریت سیمرغ", en: "Simurgh Panel" },
+        subtitle: { fa: "سامانه مدیریت محتوا و داده‌ها", en: "Content & Data Management System" },
         logo_url: "/simurgh-logo.svg",
         default_locale: "en",
         supported_locales: %w[en fa],

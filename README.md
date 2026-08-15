@@ -83,20 +83,35 @@ Kabk generates a JSON schema manifest containing dynamic system configuration an
 renderer = Kabk::SchemaRenderer.new(
   system_config: {
     title: { fa: "پنل مدیریت", en: "My Custom Admin" },
+    subtitle: { fa: "سامانه مدیریت محتوا و داده‌ها", en: "Content & Data Management System" },
     logo_url: "/custom-logo.png",
     endpoints: {
       upload: "/api/files"
     },
     auth: {
       strategy: "session",
+      show_demo_credentials: false,
       sso_redirect_url: nil,
+      subtitle: { fa: "ورود به پنل ادمین سیمرغ", en: "Sign in to Simurgh Admin Panel" },
       login_url: "/auth/admin_login",
       me_url: "/auth/admin_me",
       logout_url: "/auth/admin_logout",
       refresh_url: "/auth/admin_refresh",
       login_fields: [
-        { name: "email", label: { en: "Email", fa: "ایمیل" }, type: "text", required: true },
-        { name: "password", label: { en: "Password", fa: "کلمه عبور" }, type: "password", required: true }
+        {
+          name: "email",
+          label: { en: "Email", fa: "ایمیل" },
+          placeholder: { en: "Enter your email...", fa: "ایمیل خود را وارد کنید..." },
+          type: "text",
+          required: true
+        },
+        {
+          name: "password",
+          label: { en: "Password", fa: "کلمه عبور" },
+          placeholder: { en: "••••••••", fa: "••••••••" },
+          type: "password",
+          required: true
+        }
       ]
     }
   }
