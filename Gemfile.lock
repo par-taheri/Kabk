@@ -71,7 +71,6 @@ PLATFORMS
 
 DEPENDENCIES
   kabk!
-  parallel (~> 1.26)
   rspec
   rubocop (~> 1.21)
   sqlite3

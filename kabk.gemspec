@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Core engine for Schema-Driven Dynamic Admin Specification (Protocol v1.6.0)."
   spec.description   = "Framework-agnostic engine that provides resource registration, JSON schema manifest generation, generic CRUD engine, server-side validation, and relation hydration."
   spec.homepage      = "https://github.com/par-taheri/Kabk"
-  spec.required_ruby_version = ">= 3.1.0"
+  spec.required_ruby_version = ">= 3.2.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/par-taheri/Kabk"
